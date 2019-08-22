@@ -8,6 +8,9 @@ const Get_Countries = gql`
 			name
 			code
             emoji
+            currency
+            native
+            
             
 		}
 	}
@@ -19,10 +22,13 @@ const Countries = () => (
 			if (loading) return <h1>Loading...</h1>
 			if (error) return <h2>Error Loading Data</h2>
 
-			return data.countries.map(({ name, code }) => (
+			return data.countries.map(({ name, code, emoji, currency, native }) => (
 				<div key={code}>
 					<p>Name: {name}</p>
-					
+					<p>Flag: {emoji}</p>
+                    <p>Currency: {currency}</p>
+                    <p>Native: {native}</p>
+                    
                    
 					<hr />
 				</div>
